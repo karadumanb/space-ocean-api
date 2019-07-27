@@ -1,0 +1,5 @@
+<% flash.each do |message_type, message_content| %>
+  <div class="alert alert-<%= convert_alert_class(message_type) %> alert-message-container pointer" role="alert">
+    <%= message_content %>
+  </div>
+<% end %>

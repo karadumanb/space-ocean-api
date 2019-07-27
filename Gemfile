@@ -32,6 +32,10 @@ gem 'hirb'
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
 
+# Pagination
+gem 'will_paginate', '3.1.7'
+gem 'bootstrap-will_paginate', '1.0.0'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

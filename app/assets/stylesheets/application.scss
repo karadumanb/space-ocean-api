@@ -36,12 +36,21 @@ h1, h2, h3, h4, h5, h6 {
     color: $app-secondary;
 }
 
-.card {
-    border-radius: 5px;
-    background-color: $background-gray;
+.shadow-xl {
     -webkit-box-shadow: -3px 8px 20px 5px $shadow-color;
     -moz-box-shadow: -3px 8px 20px 5px $shadow-color;
     box-shadow: -3px 8px 20px 5px $shadow-color;
+}
+
+.shadow-sm {
+    -webkit-box-shadow: -3px 8px 20px 5px rgba(0,0,0,0.1);
+    -moz-box-shadow: -3px 8px 20px 5px rgba(0,0,0,0.1);
+    box-shadow: -3px 8px 20px 5px rgba(0,0,0,0.1);
+}
+
+.card {
+    border-radius: 5px;
+    background-color: $background-gray;
 }
 
 .pointer {

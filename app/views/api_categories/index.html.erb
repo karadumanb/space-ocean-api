@@ -8,6 +8,7 @@
 <% @api_categories.each do |api_category| %>
     <%= render 'api_category', api_category: api_category, center: true %>
 <% end %>
+<%= render 'add_api_category_card', center: true %>
 <div class="text-center my-3" align="center">
   <span class="d-inline-block">
     <%= will_paginate %>

@@ -1,0 +1,24 @@
+<div class="col-md-6 offset-md-0 col-sm-10 offset-sm-1 my-3">
+    <div class="card shadow-sm">
+        <div class="card-body">
+            <div class="card-title">
+                <h4> <%= api_category.title %> </h4>
+                <p class="text-muted">
+                    <%= api_category.description %>
+                </p>
+            </div>
+            <% api_category.api_routes.each do |api_route| %>
+                <div class="card-text">
+                    <p class="text-secondary"> <%= api_route.route %> --> <%= api_route.method %></p>
+                    <hr class="mb-3">
+                    <div class="card-subtitle mb-2 text-muted">
+                        <figure>
+                            <figcaption>Code Response</figcaption>
+                            <%= api_route.response %>
+                        </figure>
+                    </div>
+                </div>
+            <% end %>
+        </div>
+    </div>
+</div>

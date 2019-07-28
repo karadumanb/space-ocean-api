@@ -56,3 +56,19 @@ h1, h2, h3, h4, h5, h6 {
 .pointer {
     cursor: pointer;
 }
+
+.center-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.add-api-category {
+    font-size: 40px;
+    @extend .center-content;
+}
+
+.full-height {
+    height: 100%;
+}

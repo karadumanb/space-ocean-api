@@ -1,4 +1,4 @@
-<div class="col-md-6 offset-md-0 col-sm-10 offset-sm-1 my-3">
+<div class='col-sm-10 offset-sm-1 my-3 <%= !center ? "col-md-6 offset-md-0" : "" %>' >
     <div class="card shadow-sm">
         <div class="card-body">
             <div class="card-title">
@@ -8,14 +8,12 @@
                 </p>
             </div>
             <% api_category.api_routes.each do |api_route| %>
+                <hr class="mb-3">
                 <div class="card-text">
                     <p class="text-secondary"> <%= api_route.route %> --> <%= api_route.method %></p>
-                    <hr class="mb-3">
                     <div class="card-subtitle mb-2 text-muted">
-                        <figure>
-                            <figcaption>Code Response</figcaption>
-                            <%= api_route.response %>
-                        </figure>
+                        <strong>Code Response: </strong>
+                        <%= api_route.response %>
                     </div>
                 </div>
             <% end %>

@@ -16,7 +16,7 @@
           <%= f.label :description %>
         </div>
         <div class="col-sm-8 offset-sm-2">
-          <%= f.text_area :description, rows: 10, class: "form-control", placeholder: "Description of api category" %>
+          <%= f.text_area :description, rows: 2, class: "form-control", placeholder: "Description of api category" %>
         </div>
       </div>
       <div class="form-group">
@@ -25,8 +25,15 @@
         </div>
       </div>
     <% end %>
-    <div class="col-sm-6 offset-sm-3 text-center">
-      <%= link_to "Cancel request and return to categories listing", api_categories_path, class: "text-nowrap" %>
-    </div>
+  </div>
+  <div class="col-12">
+    <% @api_category.api_routes.each do |api_route| %>
+      <%= render 'api_routes/form', api_route: api_route %>
+    <% end %>
+    <%= render 'api_routes/add_api_route_card' %>
+  </div>
+
+  <div class="col-sm-6 offset-sm-3 text-center mt-5">
+    <%= link_to "Cancel request and return to categories listing", api_categories_path, class: "text-nowrap" %>
   </div>
 </div>

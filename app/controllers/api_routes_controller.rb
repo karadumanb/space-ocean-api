@@ -26,7 +26,6 @@ class ApiRoutesController < ApplicationController
     def update
       if @api_route.update(api_route_params)
         flash[:success] = "Api Route was successfully updated"
-        redirect_to api_route_path(@api_route)
       else
         render 'edit'
       end
@@ -48,6 +47,6 @@ class ApiRoutesController < ApplicationController
     end
 
     def api_route_params
-      params.require(:api_route).permit(:route, :method, :response. :api_category_id)
+      params.require(:api_route).permit(:route, :method, :response, :api_category_id)
     end
   end

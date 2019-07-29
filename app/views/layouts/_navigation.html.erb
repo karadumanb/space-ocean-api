@@ -12,7 +12,10 @@
   </button>
   <div class="collapse navbar-collapse justify-content-end" id="navbarNavDropdown">
     <ul class="navbar-nav">
-      <li class="nav-item active">
+      <li class="nav-item">
+        <%= link_to 'Answers/Questions', api_categories_path, class: 'nav-link text-muted' %>
+      </li>
+      <li class="nav-item">
         <%= link_to 'API System', api_categories_path, class: 'nav-link' %>
       </li>
       <li class="nav-item">

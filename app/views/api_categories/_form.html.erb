@@ -30,6 +30,10 @@
     <% @api_category.api_routes.each do |api_route| %>
       <%= render 'api_routes/form', api_route: api_route %>
     <% end %>
+
+    <div id="new-api-routes">
+
+    </div>
     <%= render 'api_routes/add_api_route_card' %>
   </div>
 

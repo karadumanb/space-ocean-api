@@ -1,6 +1,13 @@
 <h1 align="center">Listing all articles</h1>
 
 <div class="text-center mt-3" align="center">
+  <div class="row">
+    <div class="col-sm-8 offset-sm-2 pr-0">
+      <p class="text-right">
+        <%= link_to "+ New Article", new_article_path, class: "btn btn-primary btn-lg d-inline-block", role: "button" %>
+      </p>
+    </div>
+  </div>
   <span class="d-inline-block">
     <%= will_paginate %>
   </span>

@@ -15,11 +15,12 @@ class ApiRoutesController < ApplicationController
 
     def create
       @api_route = ApiRoute.new(api_route_params)
+      api_route = ApiRoute.new(api_route_params)
       if @api_route.save
         flash[:success] = "Api Route was created successfully"
         redirect_to api_route_path(@api_route)
       else
-        render 'new'
+        render 'api_categories/edit', api_route: @api_route
       end
     end
 
@@ -38,6 +39,15 @@ class ApiRoutesController < ApplicationController
       @api_route.destroy
       flash[:danger] = "Api Route was successfully deleted"
       redirect_to api_routes_path
+    end
+
+    def add_api_route
+      @api_route = ApiRoute.new
+      # # byebugß
+      # respond_to do |format|
+      #   format.html {}
+      #   format.js
+      # end
     end
 
     private

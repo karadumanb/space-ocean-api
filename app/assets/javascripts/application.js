@@ -20,8 +20,19 @@
 
 
 
+scroll_bottom = function() {
+    if ($('body').length > 0) {
+      $('body').scrollTop($('body').scrollHeight);
+    }
+}
+
 $(document).on('turbolinks:load', function() {
     $('.alert-message-container').on('click', function() {
         $(this).fadeOut("slow", ()=>{});
     });
+
+    // $('#api-category-add').on('click', function() {
+    //     $('#new-api-routes').append("<div>asdfsadfsafd</div>")
+    //     scroll_bottom()
+    // });
 })

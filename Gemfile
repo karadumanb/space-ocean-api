@@ -36,6 +36,10 @@ gem 'jquery-rails'
 gem 'will_paginate', '3.1.7'
 gem 'will_paginate-bootstrap4'
 
+
+gem 'pundit'
+gem 'fast_jsonapi'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

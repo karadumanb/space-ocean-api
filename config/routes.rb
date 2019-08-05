@@ -9,4 +9,8 @@ Rails.application.routes.draw do
   resources :api_categories
   resources :api_routes
 
+  namespace :api do
+    resources :articles
+  end
+
 end

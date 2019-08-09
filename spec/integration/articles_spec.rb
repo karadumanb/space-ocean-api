@@ -3,20 +3,13 @@ require 'swagger_helper'
 
 describe 'Articles API' do
 
-  path '/api/articles' do
+  path '/articles' do
 
     post 'Creates a article' do
       tags 'Articles'
       consumes 'application/json', 'application/xml'
       parameter name: :article, in: :body, schema: {
-        type: :object,
-        properties: {
-          title: { type: :string },
-          description: { type: :string },
-          user_id: { type: :integer },
-          user_name: { type: :string }
-        },
-        required: [ 'title', 'description' ]
+        '$ref' => '#/definitions/create_article'
       }
 
       response '201', 'article created' do
@@ -31,9 +24,9 @@ describe 'Articles API' do
     end
   end
 
-  path '/api/articles/{id}' do
+  path '/articles/{id}' do
 
-    get 'Retrieves a article' do
+    get 'Retrieves an article' do
       tags 'Articles'
       produces 'application/json', 'application/xml'
       parameter name: :id, :in => :path, :type => :string
@@ -41,9 +34,18 @@ describe 'Articles API' do
       response '200', 'title found' do
         schema type: :object,
           properties: {
-            id: { type: :integer },
-            title: { type: :string },
-            description: { type: :string }
+            data: {
+              type: :array,
+              items: {
+                type: :object,
+                required: %i[id type attributes],
+                properties: {
+                  id: { type: :string },
+                  type: { type: :string },
+                  attributes: {'$ref' => '#/definitions/article'}
+                }
+              }
+            }
           },
           required: [ 'id', 'title', 'description' ]
 

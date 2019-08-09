@@ -1,9 +1,17 @@
 class Api::ArticlesController < Api::ApplicationController
   before_action :fetch_articles, only: [:index]
-  before_action :set_article, only: [:destroy, :update]
+  before_action :set_article, only: [:destroy, :update, :show]
 
   def index
     render json: ArticleSerializer.new(@articles, { params: serializer_params, include: includes }), status: :ok
+  end
+
+  def show
+    if @article
+      render json: ArticleSerializer.new(@article), status: :ok
+    else
+      render json: serialize_errors(@article), status: :unprocessable_entity
+    end
   end
 
   def create
@@ -16,25 +24,25 @@ class Api::ArticlesController < Api::ApplicationController
   end
 
   def update
-    if @articles.update(article_params)
-      render json: ArticleSerializer.new(@articles), status: :ok
+    if @article.update(article_params)
+      render json: ArticleSerializer.new(@article), status: :ok
     else
-      render json: serialize_errors(@articles), status: :unprocessable_entity
+      render json: serialize_errors(@article), status: :unprocessable_entity
     end
   end
 
   def destroy
-    if @articles.destroy
+    if @article.destroy
       head :no_content
     else
-      render json: serialize_errors(@articles), status: :unprocessable_entity
+      render json: serialize_errors(@article), status: :unprocessable_entity
     end
   end
 
   private
 
   def set_article
-    @articles = Article.find(params[:id])
+    @article = Article.find(params[:id])
   end
 
   def filter_params

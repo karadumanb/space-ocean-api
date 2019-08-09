@@ -2,10 +2,12 @@
   "swagger": "2.0",
   "info": {
     "title": "API SpaceOcean",
-    "version": "SpaceOcean"
+    "version": "SpaceOcean",
+    "description": "This is API SpaceOcean version. It is used for SpaceOcean react application. Request urls => dev: http://localhost:3000, production: https://SpaceOcean.io"
   },
+  "basePath": "/api",
   "paths": {
-    "/api/articles": {
+    "/articles": {
       "post": {
         "summary": "Creates a article",
         "tags": [
@@ -20,25 +22,7 @@
             "name": "article",
             "in": "body",
             "schema": {
-              "type": "object",
-              "properties": {
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
-                },
-                "user_id": {
-                  "type": "integer"
-                },
-                "user_name": {
-                  "type": "string"
-                }
-              },
-              "required": [
-                "title",
-                "description"
-              ]
+              "$ref": "#/definitions/create_article"
             }
           }
         ],
@@ -52,9 +36,9 @@
         }
       }
     },
-    "/api/articles/{id}": {
+    "/articles/{id}": {
       "get": {
-        "summary": "Retrieves a article",
+        "summary": "Retrieves an article",
         "tags": [
           "Articles"
         ],
@@ -76,14 +60,27 @@
             "schema": {
               "type": "object",
               "properties": {
-                "id": {
-                  "type": "integer"
-                },
-                "title": {
-                  "type": "string"
-                },
-                "description": {
-                  "type": "string"
+                "data": {
+                  "type": "array",
+                  "items": {
+                    "type": "object",
+                    "required": [
+                      "id",
+                      "type",
+                      "attributes"
+                    ],
+                    "properties": {
+                      "id": {
+                        "type": "string"
+                      },
+                      "type": {
+                        "type": "string"
+                      },
+                      "attributes": {
+                        "$ref": "#/definitions/article"
+                      }
+                    }
+                  }
                 }
               },
               "required": [
@@ -96,6 +93,57 @@
           "404": {
             "description": "article not found"
           }
+        }
+      }
+    }
+  },
+  "definitions": {
+    "article": {
+      "type": "object",
+      "required": [
+        "id",
+        "user_id",
+        "user_name",
+        "description",
+        "title"
+      ],
+      "properties": {
+        "id": {
+          "type": "integer",
+          "example": 4102
+        },
+        "user_id": {
+          "type": "string",
+          "example": 215
+        },
+        "user_name": {
+          "type": "string",
+          "example": "SpaceOcean"
+        },
+        "description": {
+          "type": "string",
+          "example": "SpaceOcean Article Example, This description should include minimum 10 and max 800 characters"
+        },
+        "title": {
+          "type": "string",
+          "example": "SpaceOcean Title"
+        }
+      }
+    },
+    "create_article": {
+      "type": "object",
+      "required": [
+        "description",
+        "title"
+      ],
+      "properties": {
+        "description": {
+          "type": "string",
+          "example": "SpaceOcean Article Example, This description should include minimum 10 and max 800 characters"
+        },
+        "title": {
+          "type": "string",
+          "example": "SpaceOcean Title"
         }
       }
     }

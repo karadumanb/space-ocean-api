@@ -17,9 +17,32 @@ RSpec.configure do |config|
       swagger: '2.0',
       info: {
         title: 'API SpaceOcean',
-        version: 'SpaceOcean'
+        version: 'SpaceOcean',
+        description: 'This is API SpaceOcean version. It is used for SpaceOcean react application. Request urls => dev: http://localhost:3000, production: https://SpaceOcean.io'
       },
-      paths: {}
+      basePath: '/api',
+      paths: {},
+      definitions: {
+        article: {
+          type: :object,
+          required: %i[id user_id user_name description title],
+          properties: {
+              id: { type: :integer, example: 4102},
+              user_id: { type: :string, example: 215},
+              user_name: { type: :string, example: 'SpaceOcean'},
+              description: { type: :string, example: 'SpaceOcean Article Example, This description should include minimum 10 and max 800 characters'},
+              title: { type: :string, example: 'SpaceOcean Title'}
+          }
+        },
+        create_article: {
+          type: :object,
+          required: %i[description title],
+          properties: {
+            description: { type: :string, example: 'SpaceOcean Article Example, This description should include minimum 10 and max 800 characters'},
+            title: { type: :string, example: 'SpaceOcean Title'}
+          }
+        }
+      }
     }
   }
 end

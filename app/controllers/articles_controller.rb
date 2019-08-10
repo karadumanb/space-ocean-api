@@ -17,6 +17,7 @@ class ArticlesController < ApplicationController
     def create
       @article = Article.new(article_params)
       @article.user = current_user
+      attach_image
       if @article.save
         flash[:success] = "Article was created successfully"
         redirect_to article_path(@article)
@@ -26,6 +27,7 @@ class ArticlesController < ApplicationController
     end
 
     def update
+      attach_image
       if @article.update(article_params)
         flash[:success] = "Article was successfully updated"
         redirect_to article_path(@article)
@@ -50,7 +52,13 @@ class ArticlesController < ApplicationController
     end
 
     def article_params
-      params.require(:article).permit(:title, :description, category_ids: [])
+      params.require(:article).permit(:title, :image_url, :description, category_ids: [])
+    end
+
+    def attach_image
+      if article_params[:image_url].present?
+        @article.image_url.attach(article_params[:image_url])
+      end
     end
 
     def require_same_user

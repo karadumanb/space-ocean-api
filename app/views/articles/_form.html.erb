@@ -5,7 +5,15 @@
     <%= form_for(@article, :html => { class: "form-horizontal", role: "form" }) do |f| %>
       <div class="form-group">
         <div class="control-label col-sm-2 offset-sm-2">
-          <%= f.label :title %>  
+          <%= f.label :image_url %>
+        </div>
+        <div class="col-sm-8 offset-sm-2">
+          <%= f.file_field :image_url, class: "form-control", placeholder: "Main image of article" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-2 offset-sm-2">
+          <%= f.label :title %>
         </div>
         <div class="col-sm-8 offset-sm-2">
           <%= f.text_field :title, class: "form-control", placeholder: "Title of article", autofocus: true %>

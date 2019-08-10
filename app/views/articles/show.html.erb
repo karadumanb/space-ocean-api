@@ -15,7 +15,16 @@
       </div>
     </ul>
   <% end %>
-  <h4 class="center description"><strong>Description:</strong></h4>
+  
+  <% if @article.image_url.attached? %>
+    <div class="row center">
+      <div class="col-8 offset-2">
+        <img src="<%=(url_for(@article.image_url))%>" alt="image" width="100%">
+      </div>
+    </div>
+  <% end %>
+  
+  <h4 class="center description mt-3"><strong>Description:</strong></h4>
   <hr>
   <%= simple_format(@article.description) %>
   <% if false %>

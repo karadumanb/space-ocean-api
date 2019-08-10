@@ -64,9 +64,8 @@ h1, h2, h3, h4, h5, h6 {
     height: 100%;
 }
 
-.add-api-category {
-    font-size: 40px;
-    @extend .center-content;
+.font-large {
+    font-size: $font-lg;
 }
 
 .full-height {
@@ -83,4 +82,12 @@ a:hover {
 
 .dashed {
     border-style: dashed!important;
+}
+
+.text-orange {
+    color: $theme-orange;
+}
+
+.text-bold {
+    font-weight: bold;
 }

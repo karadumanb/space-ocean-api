@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_07_28_085601) do
+ActiveRecord::Schema.define(version: 2019_08_09_184302) do
 
   create_table "api_categories", force: :cascade do |t|
     t.string "title"
@@ -34,6 +34,7 @@ ActiveRecord::Schema.define(version: 2019_07_28_085601) do
     t.text "description"
     t.integer "user_id"
     t.text "title"
+    t.string "image_url"
   end
 
   create_table "users", force: :cascade do |t|

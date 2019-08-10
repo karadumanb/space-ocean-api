@@ -5,4 +5,8 @@ class ArticleSerializer < BaseSerializer
     attribute :user_name do |article|
         article.user.username
     end
+
+    attribute :image_url, if: Proc.new { |article| article.image_url.attached? } do |article|
+        Rails.application.routes.url_helpers.rails_blob_url(article.image_url, only_path: true)
+    end
 end

@@ -224,6 +224,11 @@
         "title": {
           "type": "string",
           "example": "SpaceOcean Title"
+        },
+        "image_url": {
+          "type": "string",
+          "x-nullable": true,
+          "example": "/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8612cd3a32da9935f2ebeae54a39a2b8a9c42626/Screenshot%202019-08-07%20at%2012.50.30.png"
         }
       }
     },

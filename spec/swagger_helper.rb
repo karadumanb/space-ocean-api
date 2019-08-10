@@ -31,7 +31,8 @@ RSpec.configure do |config|
               user_id: { type: :string, example: 215},
               user_name: { type: :string, example: 'SpaceOcean'},
               description: { type: :string, example: 'SpaceOcean Article Example, This description should include minimum 10 and max 800 characters'},
-              title: { type: :string, example: 'SpaceOcean Title'}
+              title: { type: :string, example: 'SpaceOcean Title'},
+              image_url: { type: :string, 'x-nullable': true, example: '/rails/active_storage/blobs/eyJfcmFpbHMiOnsibWVzc2FnZSI6IkJBaHBIQT09IiwiZXhwIjpudWxsLCJwdXIiOiJibG9iX2lkIn19--8612cd3a32da9935f2ebeae54a39a2b8a9c42626/Screenshot%202019-08-07%20at%2012.50.30.png'}
           }
         },
         create_article: {

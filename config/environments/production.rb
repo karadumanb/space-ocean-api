@@ -86,6 +86,17 @@ Rails.application.configure do
   # require 'syslog/logger'
   # config.logger = ActiveSupport::TaggedLogging.new(Syslog::Logger.new 'app-name')
 
+  # Mailer configuration
+  config.action_mailer.smtp_settings = {
+    :address        => 'smtp.sendgrid.net',
+    :port           => 587,
+    :domain         => 'gmail.com',
+    :enable_starttls_auto => true,
+    :authentication => :plain,
+    :user_name      => 'SpaceOcean',
+    :password       => ENV['SENDGRID_KEY']
+  }
+
   if ENV["RAILS_LOG_TO_STDOUT"].present?
     logger           = ActiveSupport::Logger.new(STDOUT)
     logger.formatter = config.log_formatter

@@ -9,7 +9,8 @@ Rails.application.routes.draw do
   resources :articles
 
   namespace :api do
-    resources :articles
+    resources :articles, only: [:index, :show]
+    resources :contact_forms, only: [:create]
   end
 
 end

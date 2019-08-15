@@ -42,6 +42,16 @@ RSpec.configure do |config|
             description: { type: :string, example: 'SpaceOcean Article Example, This description should include minimum 10 and max 800 characters'},
             title: { type: :string, example: 'SpaceOcean Title'}
           }
+        },
+        contact_form: {
+          type: :object,
+          required: %i[email name body title],
+          properties: {
+            email: { type: :string, example: 'spaceocean.spacecraft@gmail.com'},
+            name: { type: :string, example: 'Baturay'},
+            body: { type: :string, example: 'SpaceOcean Mail Try'},
+            title: { type: :string, example: 'SpaceOcean Title'}
+          }
         }
       }
     }

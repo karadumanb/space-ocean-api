@@ -1,6 +1,6 @@
 class Api::ArticlesController < Api::ApplicationController
   before_action :fetch_articles, only: [:index]
-  before_action :set_article, only: [:destroy, :update, :show]
+  before_action :set_article, only: [:show]
 
   def index
     render json: ArticleSerializer.new(@articles, { params: serializer_params, include: includes }), status: :ok
@@ -9,31 +9,6 @@ class Api::ArticlesController < Api::ApplicationController
   def show
     if @article
       render json: ArticleSerializer.new(@article), status: :ok
-    else
-      render json: serialize_errors(@article), status: :unprocessable_entity
-    end
-  end
-
-  def create
-    @articles = Article.new(article_params)
-    if @articles.save
-      render json: ArticleSerializer.new(@articles), status: :created
-    else
-      render json: serialize_errors(@articles), status: :unprocessable_entity
-    end
-  end
-
-  def update
-    if @article.update(article_params)
-      render json: ArticleSerializer.new(@article), status: :ok
-    else
-      render json: serialize_errors(@article), status: :unprocessable_entity
-    end
-  end
-
-  def destroy
-    if @article.destroy
-      head :no_content
     else
       render json: serialize_errors(@article), status: :unprocessable_entity
     end
@@ -52,10 +27,6 @@ class Api::ArticlesController < Api::ApplicationController
 
   def fetch_articles
     @articles = ArticleQuery.new(Article.all).filter_by(filter_params).order(sort_params)
-  end
-
-  def article_params
-    params.require(:article).permit(:title, :description)
   end
 end
 

@@ -1,4 +1,7 @@
 class ApplicationMailer < ActionMailer::Base
-  default from: 'from@example.com'
+  MAIL_ADDRESS = 'spaceocean.spacecraft@gmail.com'
+
+  default to: -> { MAIL_ADDRESS },
+  from: MAIL_ADDRESS
   layout 'mailer'
 end

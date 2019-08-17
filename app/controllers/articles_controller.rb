@@ -45,6 +45,13 @@ class ArticlesController < ApplicationController
       redirect_to articles_path
     end
 
+    def markdown_result
+      @description = params[:description]
+      respond_to do |format|
+          format.html { render(:partial => 'articles/markdown_result', :locals => {:description => @description}) }
+      end
+    end
+
     private
 
     def set_article

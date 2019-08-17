@@ -15,7 +15,6 @@
  */
 @import "bootstrap";
 @import "./variables.scss";
-@import 'rouge';
 
 .app-wrapper {
     padding: $container-padding;
@@ -67,6 +66,15 @@ h1, h2, h3, h4, h5, h6 {
 .font-large {
     font-size: $font-lg;
 }
+
+.font-xl {
+    font-size: $font-xl;
+}
+
+.font-xxl {
+    font-size: $font-xxl;
+}
+
 
 .full-height {
     height: 100%;

@@ -26,7 +26,7 @@
   
   <h4 class="center description mt-3"><strong>Description:</strong></h4>
   <hr>
-  <%= simple_format(@article.description) %>
+  <%= markdown(@article.description) %>
   <% if false %>
     <p>Categories: <%= render @article.categories %></p>
   <% end %>

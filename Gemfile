@@ -43,6 +43,10 @@ gem 'fast_jsonapi'
 #swagger
 gem 'rswag'
 
+#markdown
+gem 'redcarpet', '~> 3.4'
+gem 'rouge', '~> 3.3'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

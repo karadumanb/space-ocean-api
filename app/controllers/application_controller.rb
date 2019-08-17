@@ -1,4 +1,5 @@
 class ApplicationController < ActionController::Base
+	include MarkdownHelper
 	#to make it available in views
 	helper_method :current_user, :logged_in?
 	def current_user

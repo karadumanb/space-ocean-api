@@ -47,6 +47,9 @@ gem 'rswag'
 gem 'redcarpet', '~> 3.4'
 gem 'rouge', '~> 3.3'
 
+#for cors policies
+gem 'rack-cors'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

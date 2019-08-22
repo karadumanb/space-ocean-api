@@ -6,6 +6,10 @@ class ArticleSerializer < BaseSerializer
         article.user.username
     end
 
+    attribute :created_at do |article|
+        article.created_at.strftime('%d.%m.%Y')
+    end
+
     attribute :image_url, if: Proc.new { |article| article.image_url.attached? } do |article|
         Rails.application.routes.url_helpers.rails_blob_url(article.image_url, only_path: true)
     end

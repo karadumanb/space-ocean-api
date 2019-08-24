@@ -16,4 +16,11 @@ class ApplicationController < ActionController::Base
       		redirect_to login_path
 		end
 	end
+
+	def require_admin
+		if current_user.blank? || !current_user.admin?
+			flash[:error] = "You must be admin to perform that action"
+			redirect_to :back
+		end
+	end
 end

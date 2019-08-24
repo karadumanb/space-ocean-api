@@ -3,12 +3,12 @@ class Api::ArticlesController < Api::ApplicationController
   before_action :set_article, only: [:show]
 
   def index
-    render json: ArticleSerializer.new(@articles, { params: serializer_params, include: includes }), status: :ok
+    render json: ArticleBasicSerializer.new(@articles, { params: serializer_params, include: includes }), status: :ok
   end
 
   def show
     if @article
-      render json: ArticleSerializer.new(@article), status: :ok
+      render json: ArticleSerializer.new(@article, { params: serializer_params, include: includes }), status: :ok
     else
       render json: serialize_errors(@article), status: :unprocessable_entity
     end

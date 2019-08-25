@@ -16,6 +16,7 @@ Rails.application.routes.draw do
 
 
   resources :articles
+  resources :comments
 
   namespace :api do
     resources :articles, only: [:index, :show]

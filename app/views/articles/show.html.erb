@@ -27,6 +27,12 @@
   <h4 class="center description mt-3"><strong>Description:</strong></h4>
   <hr>
   <%= markdown(@article.description) %>
+  <% if @article.comments.present? %>
+    <hr>
+    <h4 class="center description mt-3"><strong>Comments:</strong></h4>
+    <%= render 'comments/comments_list', comments: @article.comments %>
+  <% end %>
+
   <% if false %>
     <p>Categories: <%= render @article.categories %></p>
   <% end %>

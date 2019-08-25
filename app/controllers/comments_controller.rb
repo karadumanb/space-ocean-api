@@ -38,7 +38,7 @@ class CommentsController < ApplicationController
     def destroy
       @comment.destroy
       flash[:danger] = "Comment was successfully deleted"
-      redirect_to :back
+      refresh_page
     end
 
     private

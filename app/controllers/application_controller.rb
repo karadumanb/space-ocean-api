@@ -23,4 +23,8 @@ class ApplicationController < ActionController::Base
 			redirect_to :back
 		end
 	end
+
+	def refresh_page
+		redirect_back fallback_location: root_path
+	end
 end

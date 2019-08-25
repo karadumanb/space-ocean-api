@@ -3,7 +3,7 @@ class Api::ArticlesController < Api::ApplicationController
   before_action :set_article, only: [:show]
 
   def index
-    render json: ArticleBasicSerializer.new(@articles, { params: serializer_params, include: includes }), status: :ok
+    render json: ArticleBasicSerializer.new(@articles, { params: serializer_params, include: includes, meta: pagination_meta(@articles)}), status: :ok
   end
 
   def show
@@ -26,7 +26,7 @@ class Api::ArticlesController < Api::ApplicationController
   end
 
   def fetch_articles
-    @articles = ArticleQuery.new(Article.all).filter_by(filter_params).order(sort_params)
+    @articles = ArticleQuery.new(Article.all).filter_by(filter_params).order(sort_params).page(page_param).per_page(per_page_param)
   end
 end
 

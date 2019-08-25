@@ -62,6 +62,24 @@ class Api::ApplicationController < ActionController::Base
         }
       end
     end
+
+    def page_param
+      params[:page] ? params[:page] : 1
+    end
+
+    def per_page_param
+      params[:per_page] ? params[:per_page] : 10
+    end
+  
+    def pagination_meta(object)
+      {
+        current_page: object.current_page,
+        next_page: object.next_page,
+        prev_page: object.previous_page,
+        total_pages: object.total_pages,
+        total_count: object.total_entries
+      }
+    end
   
     private
   
@@ -101,5 +119,4 @@ class Api::ApplicationController < ActionController::Base
     def policy_scope(scope)
       super([:user, scope])
     end
-
 end

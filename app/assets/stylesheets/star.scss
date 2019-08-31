@@ -1,0 +1,36 @@
+/***
+ *  Simple Pure CSS Star Rating Widget Bootstrap 4 
+ * 
+ *  www.TheMastercut.co
+ *  
+ ***/
+
+//  @import url(//netdna.bootstrapcdn.com/font-awesome/3.2.1/css/font-awesome.css);
+ @import "font-awesome";
+ @import "./variables.scss";
+
+ .starrating > input {display: none;}  /* Remove radio buttons */
+
+ .starrating > label:before {
+   content: "\f005"; /* Star */
+   margin: 2px;
+   font-size: 8em;
+   font-family: FontAwesome;
+   display: inline-block;
+   cursor: pointer;
+ }
+
+ .starrating > label
+ {
+   color: #222222; /* Start color when not clicked */
+ }
+
+ .starrating > input:checked ~ label
+ { color: $yellow ; } /* Set yellow color when star checked */
+
+ .starrating > input:hover ~ label
+ { color: $yellow ;  } /* Set yellow color when star hover */
+
+ .fa-star--yellow::before {
+  color: $yellow;
+}

@@ -26,7 +26,7 @@ module MarkdownHelper
       }
 
     markdown = Redcarpet::Markdown.new(renderer, extras)
-      raw markdown.render(text)
+      raw text ? markdown.render(text) : ''
     end
 
 end

@@ -31,6 +31,7 @@ gem 'hirb'
 # bootstrap
 gem 'bootstrap', '~> 4.0.0'
 gem 'jquery-rails'
+gem "font-awesome-rails"
 
 # Pagination
 gem 'will_paginate', '3.1.7'

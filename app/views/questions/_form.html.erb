@@ -1,0 +1,47 @@
+<%= render 'shared/errors', obj: @question %>
+
+<div class="row">
+  <div class="col-12">
+    <%= form_for(@question, :html => { class: "form-horizontal", role: "form" }) do |f| %>
+      <div class="form-group">
+        <div class="control-label col-sm-2 offset-sm-2">
+          <%= f.label :body %>
+        </div>
+        <div class="col-sm-8 offset-sm-2">
+          <%= f.text_field :body, class: "form-control", placeholder: "Question", autofocus: true %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-2 offset-sm-2">
+          <%= f.label :answer %>
+        </div>
+        <div class="col-sm-8 offset-sm-2">
+          <%= f.text_field :answer, class: "form-control", placeholder: "Answer" %>
+        </div>
+      </div>
+      <div class="form-group">
+        <div class="control-label col-sm-2 offset-sm-2">
+          <%= f.label :difficulty %>
+        </div>
+        <div class="col-sm-8 offset-sm-2">
+          <div class="starrating risingstar d-flex justify-content-center flex-row-reverse">
+            <%= f.radio_button :difficulty, 5, id: "star5" %><label for="star5" title="5 star">5</label>
+            <%= f.radio_button :difficulty, 4, id: "star4"%><label for="star4" title="4 star">4</label>
+            <%= f.radio_button :difficulty, 3, id: "star3"%><label for="star3" title="3 star">3</label>
+            <%= f.radio_button :difficulty, 2, id: "star2"%><label for="star2" title="2 star">2</label>
+            <%= f.radio_button :difficulty, 1, id: "star1"%><label for="star1" title="1 star">1</label>
+          </div>
+        </div>
+      </div>
+
+      <div class="form-group">
+        <div class="col-sm-8 offset-sm-2 text-center">
+          <%= f.submit class: "btn btn-primary btn-lg" %>
+        </div>
+      </div>
+    <% end %>
+    <div class="col-sm-6 offset-sm-3 text-center">
+      <%= link_to "Cancel request and return to questions listing", questions_path, class: "text-nowrap" %>
+    </div>
+  </div>
+</div>

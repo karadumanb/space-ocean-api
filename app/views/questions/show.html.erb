@@ -22,6 +22,16 @@
   </p>
   <hr>
 
+  <% if @question.tip.present? %>
+    <h4 class="center description mt-3"><strong>Tip:</strong></h4>
+
+    <p class="ml-4">
+      <%= @question.tip %>
+    </p>
+    <hr>
+  <% end %>
+
+
   <div class="question-actions">
     <% if logged_in? && (current_user.admin?) %>
       <%= link_to "Edit this question", edit_question_path(@question), class: "btn btn-xs btn-primary" %> 

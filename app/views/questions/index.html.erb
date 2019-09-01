@@ -3,7 +3,12 @@
 <div class="text-center mt-3" align="center">
   <% if logged_in? && current_user.admin? %>
     <div class="row">
-      <div class="col-sm-8 offset-sm-2 pr-0">
+      <div class="col-sm-2 offset-sm-2 pl-0">
+        <p class="text-left">
+          <%= link_to "Games", 'games_path', class: "btn btn-success btn-lg d-inline-block", role: "button" %>
+        </p>
+      </div>
+      <div class="col-sm-6 pr-0">
         <p class="text-right">
           <%= link_to "+ New Question", new_question_path, class: "btn btn-primary btn-lg d-inline-block", role: "button" %>
         </p>

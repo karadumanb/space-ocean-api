@@ -44,6 +44,9 @@ gem 'fast_jsonapi'
 #swagger
 gem 'rswag'
 
+#token generator
+gem 'jwt'
+
 #markdown
 gem 'redcarpet', '~> 3.4'
 gem 'rouge', '~> 3.3'

@@ -23,6 +23,18 @@ Rails.application.routes.draw do
     resources :articles, only: [:index, :show]
     resources :contact_forms, only: [:create]
     resources :comments, only: [:index, :create]
+
+    namespace :v1 do
+      get '/start_game', to: 'puzzles#random_gen'
+      post '/login', to: 'auth#create'
+      get '/me', to: 'auth#show'
+
+      resources :users
+      resources :words
+      resources :grid_boxes
+      resources :puzzle_words
+      resources :puzzles
+    end
   end
 
 end

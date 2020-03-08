@@ -20,8 +20,8 @@ Rails.application.routes.draw do
   resources :questions
 
   namespace :api do
-    resources :articles, only: [:index, :show]
-    resources :contact_forms, only: [:create]
+    resources :articles, except: [:create]
+    resources :contact_forms, except: [:update]
     resources :comments, only: [:index, :create]
   end
 

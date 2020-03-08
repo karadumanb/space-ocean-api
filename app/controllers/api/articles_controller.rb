@@ -1,6 +1,6 @@
 class Api::ArticlesController < Api::ApplicationController
   before_action :fetch_articles, only: [:index]
-  before_action :set_article, only: [:show]
+  before_action :set_article, only: [:show, :update]
 
   def index
     render json: ArticleBasicSerializer.new(@articles, { params: serializer_params, include: includes, meta: pagination_meta(@articles)}), status: :ok
@@ -14,7 +14,20 @@ class Api::ArticlesController < Api::ApplicationController
     end
   end
 
+  def update
+    if @article.update(article_params)
+      render json: ArticleSerializer.new(@article, { params: serializer_params, include: includes }), status: :ok
+    else
+      render json: serialize_errors(@article), status: :unprocessable_entity
+    end
+  end
+
   private
+
+  def article_params
+    params.permit(:title, :description)
+  end
+
 
   def set_article
     @article = Article.find(params[:id])

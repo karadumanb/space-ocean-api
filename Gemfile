@@ -40,6 +40,7 @@ gem 'will_paginate-bootstrap4'
 #api
 gem 'pundit'
 gem 'fast_jsonapi'
+gem 'clearance'
 
 #swagger
 gem 'rswag'

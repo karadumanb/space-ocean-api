@@ -10,7 +10,7 @@ class Api::AuthenticationController < Api::ApplicationController
     end
     sign_in(user) do |status|
       if status.success?
-        render json: ::Supplier::UserSerializer.new(user, { include: includes }), status: :ok
+        render json: ::UserSerializer.new(user), status: :ok
       else
         render json: { error: 'Access denied' }, status: :unauthorized
       end
@@ -19,20 +19,15 @@ class Api::AuthenticationController < Api::ApplicationController
 
   def login_session
     if current_user.present?
-      render json: ::Supplier::UserSerializer.new(current_user, { include: includes }), status: :ok
+      render json: ::UserSerializer.new(current_user), status: :ok
     else
       render json: { error: 'Access denied' }, status: :unauthorized
     end
   end
 
   def logout
-    reset_user_informations
-    head :ok
-  end
-
-  def reset_user_informations
-    User.current = nil
     reset_session
     sign_out
+    head :ok
   end
 end

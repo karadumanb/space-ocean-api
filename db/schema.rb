@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_03_172554) do
+ActiveRecord::Schema.define(version: 2020_05_09_204341) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -96,9 +96,23 @@ ActiveRecord::Schema.define(version: 2020_05_03_172554) do
     t.string "encrypted_password"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "admin", default: true
     t.string "confirmation_token", limit: 128
     t.string "remember_token", limit: 128
+    t.string "role"
+    t.string "email"
+    t.string "locale"
+    t.integer "photo_id"
+    t.boolean "archived", default: false
+    t.string "website_cv"
+    t.string "website"
+    t.string "facebook"
+    t.string "linked_in"
+    t.string "twitter"
+    t.string "instagram"
+    t.string "first_name"
+    t.string "last_name"
+    t.string "name"
+    t.string "github"
     t.index ["remember_token"], name: "index_users_on_remember_token"
   end
 

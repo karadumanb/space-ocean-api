@@ -23,6 +23,13 @@ Rails.application.routes.draw do
     resources :articles, except: [:create]
     resources :contact_forms, except: [:update]
     resources :comments, only: [:index, :create]
+    resources :users, only: [:show]
+    resource :authentication, controller: :authentication, only: [] do
+      post :login
+      post :signup
+      get :login_session
+      get :logout
+    end
   end
 
 end

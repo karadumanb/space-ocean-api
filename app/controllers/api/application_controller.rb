@@ -20,8 +20,6 @@ class Api::ApplicationController < ActionController::Base
   protected
   def authenticate
     return invalid_authentication unless current_user.present?
-
-    User.current = current_user
   end
 
   # Returns 401 response. To handle malformed / invalid requests.
@@ -96,14 +94,6 @@ class Api::ApplicationController < ActionController::Base
       nil
     end
   end
-
-  # Sets the @current_user with the user_id from payload
-  # def current_user
-  #   @_current_user ||= User.find_by(id: payload.present? ? payload[0]['user_id'] : 1).tap do |user|
-  #     User.current      = user
-  #     session[:user_id] = user.id
-  #   end
-  # end
 
   def invalid_payload?
     payload.blank? || !JsonWebToken.valid_payload(payload.first)

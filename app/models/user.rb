@@ -3,5 +3,7 @@ class User < ApplicationRecord
 
   has_many :articles, dependent: :destroy
   validates :username, uniqueness: { case_sensitive: false }, presence: true, length: {minimum: 3, maximum: 15}
-  has_secure_password
+  validates :email, uniqueness: { message: 'Email is already taken.' }, presence: true
+  validates :password, presence: true, on: :create
+  validates :password, presence: true, allow_blank: true, on: :update
 end

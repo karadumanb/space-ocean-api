@@ -1,4 +1,5 @@
 class Api::UsersController < Api::ApplicationController
+  skip_before_action :authenticate, only: [:show]
   before_action :set_user, only: [:show]
 
   def show

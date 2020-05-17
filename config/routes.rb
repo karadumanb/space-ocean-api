@@ -26,7 +26,7 @@ Rails.application.routes.draw do
     resources :users, only: [:show]
     resource :authentication, controller: :authentication, only: [] do
       post :login
-      post :signup
+      post :sign_up
       get :login_session
       get :logout
     end

@@ -250,6 +250,7 @@ GEM
       thread_safe (~> 0.1)
     uglifier (4.1.20)
       execjs (>= 0.3.0, < 3)
+    waterfall (1.3.0)
     web-console (3.7.0)
       actionview (>= 5.0)
       activemodel (>= 5.0)
@@ -298,6 +299,7 @@ DEPENDENCIES
   turbolinks (~> 5)
   tzinfo-data
   uglifier (>= 1.3.0)
+  waterfall
   web-console (>= 3.3.0)
   will_paginate (= 3.1.7)
   will_paginate-bootstrap4

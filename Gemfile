@@ -52,6 +52,9 @@ gem 'rouge', '~> 3.3'
 #for cors policies
 gem 'rack-cors'
 
+#service helper
+gem 'waterfall'
+
 # Use ActiveStorage variant
 # gem 'mini_magick', '~> 4.8'
 

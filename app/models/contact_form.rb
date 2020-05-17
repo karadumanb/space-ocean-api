@@ -8,6 +8,6 @@ class ContactForm < ApplicationRecord
   after_create :send_email
 
   def send_email
-    # CustomerMailer.send_notification_email(self).deliver_now
+    CustomerMailer.send_notification_email(self).deliver_now
   end
 end

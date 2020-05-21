@@ -10,9 +10,10 @@ class User < ApplicationRecord
   validate :valid_role?
 
   def User.create_by_email_with_password(email, password)
+    username = CreateUsernameService.new(email).call
     User.where(email: email.downcase).first_or_create! do |u|
       u.password = password
-      u.username = email.split('@').first
+      u.username = username
     end
   end
 

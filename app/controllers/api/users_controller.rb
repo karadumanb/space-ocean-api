@@ -10,9 +10,13 @@ class Api::UsersController < Api::ApplicationController
     end
   end
   private
+  def contains_only_numberic?(string)
+    string.match(/\D/).blank?
+  end
 
   def set_user
-    @user = User.find(params[:id])
+    identifier = params[:id]
+    @user =contains_only_numberic?(identifier) ? User.find(identifier) : User.find_by(username: identifier)
   end
 end
 

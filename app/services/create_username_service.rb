@@ -13,7 +13,7 @@ class CreateUsernameService
   def find_unique_username
     taken_usernames = User.where("username LIKE ?", "#{email_first_part}%").pluck(:username)
 
-    return email_first_part if ! taken_usernames.include?(email_first_part)
+    return email_first_part if !taken_usernames.include?(email_first_part)
 
     count = 2
     while true

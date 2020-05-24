@@ -32,3 +32,11 @@
 .env
 
 .vscode
+/.generators
+/.idea/.gitignore
+/.idea/.rakeTasks
+/.rakeTasks
+/.idea/misc.xml
+/.idea/modules.xml
+/.idea/space-ocean-api.iml
+/.idea/vcs.xml

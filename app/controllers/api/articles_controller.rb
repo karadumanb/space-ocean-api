@@ -3,12 +3,12 @@ class Api::ArticlesController < Api::ApplicationController
   before_action :set_article, only: [:show, :update]
 
   def index
-    render json: ArticleBasicSerializer.new(@articles, { params: serializer_params, include: includes, meta: pagination_meta(@articles)}), status: :ok
+    render json: Article::BaseSerializer.new(@articles, { params: serializer_params, include: includes, meta: pagination_meta(@articles)}), status: :ok
   end
 
   def show
     if @article
-      render json: ArticleSerializer.new(@article, { params: serializer_params, include: includes }), status: :ok
+      render json: Article::DefaultSerializer.new(@article, { params: serializer_params, include: includes }), status: :ok
     else
       render json: serialize_errors(@article), status: :unprocessable_entity
     end
@@ -16,7 +16,7 @@ class Api::ArticlesController < Api::ApplicationController
 
   def update
     if @article.update(article_params)
-      render json: ArticleSerializer.new(@article, { params: serializer_params, include: includes }), status: :ok
+      render json: Article::DefaultSerializer.new(@article, { params: serializer_params, include: includes }), status: :ok
     else
       render json: serialize_errors(@article), status: :unprocessable_entity
     end
